@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Flipkart AI AutoLister",
+  "version": "1.1.0",
+  "description": "Extract seller products from documents, review them, and publish approved listings through Flipkart Seller APIs.",
+  "action": {
+    "default_popup": "extension/popup.html",
+    "default_title": "Flipkart AI AutoLister"
+  },
+  "background": {
+    "service_worker": "extension/background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "http://localhost:8787/*",
+    "http://127.0.0.1:8787/*"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run AutoLister backend",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/server.mjs",
+      "envFile": "${workspaceFolder}/.env",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

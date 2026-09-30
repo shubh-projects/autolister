@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Install dependencies", "type": "shell", "command": "npm install", "problemMatcher": [] },
+    { "label": "Run tests", "type": "shell", "command": "npm test", "problemMatcher": [] },
+    { "label": "Start backend", "type": "shell", "command": "npm start", "problemMatcher": [] }
+  ]
+}

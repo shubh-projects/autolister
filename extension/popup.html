@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flipkart AI AutoLister</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>
+    body.web-app { width: auto; min-height: 100vh; max-width: 1100px; margin: 0 auto; }
+    .web-app header { padding: 28px 32px; }
+    .web-app main { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .web-app .card { padding: 20px; }
+    .web-app .product { padding: 18px; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">MARKETPLACE AUTOMATION</div>
+    <h1>AutoLister</h1>
+    <p>Document → structured data → human review → Flipkart API.</p>
+  </header>
+
+  <main>
+    <section class="card connection">
+      <div>
+        <div class="label">Flipkart seller account</div>
+        <div id="connectionText">Checking connection…</div>
+      </div>
+      <div style="display:flex;gap:7px"><button id="dashboardBtn" class="secondary">Dashboard</button><button id="connectBtn" class="secondary">Connect</button></div>
+    </section>
+
+    <section class="card">
+      <div class="label">1. Upload product source</div>
+      <input id="file" type="file" accept=".pdf,.docx,.txt,.md,.csv" />
+      
+      <!-- New Marketplace Selector -->
+      <div style="margin: 16px 0;">
+        <div class="label" style="margin-bottom: 8px; font-size: 13px;">Target Marketplaces</div>
+        <div style="display: flex; gap: 16px; font-size: 14px;">
+          <label style="cursor: pointer;"><input type="checkbox" name="platforms" value="flipkart" checked> Flipkart</label>
+          <label style="cursor: pointer;"><input type="checkbox" name="platforms" value="meesho"> Meesho</label>
+        </div>
+      </div>
+
+      <button id="analyzeBtn" class="primary">Analyze document</button>
+      <div id="uploadStatus" class="status"></div>
+      <div class="small">The AI is extraction-only. It does not publish anything.</div>
+    </section>
+
+    <section id="reviewSection" class="card hidden">
+      <div class="row between">
+        <div>
+          <div class="label">2. Human review</div>
+          <div id="jobMeta"></div>
+        </div>
+        <button id="selectValidBtn" class="secondary">Select valid</button>
+      </div>
+      <div class="review-note">Edit anything the AI missed. Saving re-runs deterministic validation and clears that product's approval.</div>
+      <div id="products"></div>
+      <button id="approveSelectedBtn" class="secondary full">Approve selected</button>
+      <button id="publishBtn" class="publish">Publish approved to Flipkart</button>
+      <div id="publishStatus" class="status"></div>
+    </section>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

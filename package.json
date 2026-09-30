@@ -1,0 +1,23 @@
+{
+  "name": "flipkart-ai-autolister",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0 <24"
+  },
+  "scripts": {
+    "start": "node backend/server.mjs",
+    "dev": "node --watch backend/server.mjs",
+    "test": "node backend/test.mjs",
+    "check": "node --check backend/server.mjs && node --check backend/test.mjs && node --check extension/popup.js && node --check extension/background.js"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "mammoth": "1.12.3",
+    "multer": "2.4.0",
+    "pdf-parse": "2.4.5",
+    "tesseract.js": "7.0.0",
+    "dotenv": "17.2.2"
+  }
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AutoLister Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">MARKETPLACE CONTROL CENTER</div>
+      <h1>AutoLister Dashboard</h1>
+      <p id="accountLine">Loading seller account…</p>
+    </div>
+    <div class="top-actions">
+      <button id="openUploader" class="secondary">Open uploader</button>
+      <button id="refreshBtn" class="primary">Refresh</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats" id="stats"></section>
+
+    <section class="grid-2">
+      <article class="panel">
+        <div class="panel-head"><div><div class="label">Current account</div><h2>Marketplace connection</h2></div><span id="connectionBadge" class="badge">—</span></div>
+        <div id="connectionDetails" class="muted">Loading…</div>
+      </article>
+      <article class="panel">
+        <div class="panel-head"><div><div class="label">Latest activity</div><h2>Latest upload</h2></div><span id="latestJobStatus" class="badge">—</span></div>
+        <div id="latestJob" class="muted">No uploads yet.</div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head responsive-head">
+        <div><div class="label">Product control</div><h2>Everything your system has processed</h2></div>
+        <div class="filters">
+          <input id="search" placeholder="Search title, SKU, FSN…" />
+          <select id="statusFilter"><option value="ALL">All statuses</option><option>REVIEW_REQUIRED</option><option>APPROVED</option><option>PUBLISHED</option><option>WARNING</option><option>FAILED</option><option>BLOCKED</option></select>
+        </div>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Product</th><th>SKU</th><th>FSN</th><th>Source</th><th>Status</th><th>Problems</th><th></th></tr></thead><tbody id="productsBody"></tbody></table></div>
+      <div id="productEmpty" class="empty hidden">No products match this filter.</div>
+    </section>
+
+    <section class="grid-2">
+      <article class="panel">
+        <div class="panel-head"><div><div class="label">Uploads</div><h2>Listing runs</h2></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Document</th><th>Products</th><th>Published</th><th>Needs review</th><th>Failed</th><th></th></tr></thead><tbody id="jobsBody"></tbody></table></div>
+        <div id="jobsEmpty" class="empty hidden">No listing runs yet.</div>
+      </article>
+      <article class="panel problems-panel">
+        <div class="panel-head"><div><div class="label">Attention center</div><h2>Problems to fix</h2></div><span id="problemCount" class="badge bad">0</span></div>
+        <div id="problems"></div>
+        <div id="problemsEmpty" class="empty hidden">No blocked, failed, warning, or review-required records.</div>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
